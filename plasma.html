@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid'19 Resource Site - Medicines</title>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <script type='text/javascript'>
+        var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1S1Sy9Cpdf_syWrAO3Kd0IWD0LKh6COb4wGGL1EURBcc/edit#gid=0';
+            
+        function init() {
+            Tabletop.init({
+                key: publicSpreadsheetUrl,
+                callback: showInfo,
+                simpleSheet: true
+            })
+        }
+        
+
+        function showInfo(data, tabletop) {
+            var table = document.getElementById("hospitalTable");
+            for(i=0;i<data.length;i++){
+                var row = table.insertRow(1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
+                var cell6 = row.insertCell(5);
+                cell1.innerHTML = data[i]['state'];
+                cell2.innerHTML = data[i]['resource-name'];
+                cell3.innerHTML = data[i]['contact-info'];
+                cell4.innerHTML = data[i]['address'];
+                cell5.innerHTML = data[i]['last-verified'];
+            }
+            
+            alert('Successfully Processed!')
+            console.log(data);
+        }
+
+        window.addEventListener('DOMContentLoaded', init)
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container"><a class="navbar-brand" href="index.html">Covid'19 Resource Site</a><button
+                data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle
+                    navigation</span><span class="navbar-toggler-icon" style="color: var(--blue);"></span></button>
+            <div class="collapse navbar-collapse text-right" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link"
+                            href="index.html" target="_blank">Hospital Beds</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="oxygen.html" target="_blank">Oxygen</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="plasma.html" target="_blank">Plasma</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="medicine.html" target="_blank">Medicines</a></li>
+                </ul><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSceFGp0TD3Au16xahKZSZ9ZZUiA_vbuShy9SVfcI9AmH-PuMQ/viewform?usp=sf_link">Get
+                        Support</a></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-10">
+        <table class="table table-striped" id='hospitalTable'>
+            <thead>
+              <tr>
+                <th>STATE</th>
+                <th>RESOURCE NAME</th>
+                <TH>CONTACT INFO</TH>
+                <th>ADDRESS</th>
+                <th>LAST VERIFIED</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+          </table>
+        </div>
+          </div>
+        <section>
+            <footer class="footer-basic">
+                <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+                            class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a>
+                </div>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="index.html">Home</a></li>
+                    <li class="list-inline-item"></li>
+                    <li class="list-inline-item"></li>
+                    <li class="list-inline-item"></li>
+                    <li class="list-inline-item"><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+                <p class="copyright">Covid'19 Resource Site © 2021</p>
+            </footer>
+        </section>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
