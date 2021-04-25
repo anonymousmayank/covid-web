@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
     <script type='text/javascript'>
-        var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1b5diE0obNMZz3XTnAlK3BqDMMCq9H9CcAEa_PEoRph8/edit#gid=0';
-           
+        var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1a7OS6eNClcAb2CSh39o40fTh24SEiQlu7e3R7i0nocc/edit?usp=sharing';
+        var d;
         function init() {
             Tabletop.init({
                 key: publicSpreadsheetUrl,
@@ -35,19 +35,131 @@
                 var cell5 = row.insertCell(4);
                 var cell6 = row.insertCell(5);
                 cell1.innerHTML = data[i]['state'];
-                cell2.innerHTML = data[i]['City/Address'];
-                cell3.innerHTML = data[i]['Contact-Info'];
-                cell4.innerHTML = data[i]['Medicine-Name'];
-                cell5.innerHTML = data[i]['No-Available'];
-                cell6.innerHTML = data[i]['Last-Verified'];
+                cell2.innerHTML = data[i]['address'];
+                cell3.innerHTML = data[i]['contact'];
+                cell4.innerHTML = data[i]['medicine'];
+                cell5.innerHTML = data[i]['availability'];
+                cell6.innerHTML = data[i]['lastverified'];
             }
-            
-            alert('Successfully Processed!')
+            d = data;
             console.log(data);
         }
 
         window.addEventListener('DOMContentLoaded', init)
+        function srch() {
+            var table = document.getElementById("medicineTable");
+            var s = document.getElementById('searchBox').value;
+            for (i = 0; i < d.length; i++) {
+                table.deleteRow(1);
+            }
+            for (i = 0; i < d.length; i++) {
+                if (d[i]['state'].toLowerCase() == s.toLowerCase()) {
+                    var row = table.insertRow(1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
+                var cell6 = row.insertCell(5);
+                cell1.innerHTML = d[i]['state'];
+                cell2.innerHTML = d[i]['address'];
+                cell3.innerHTML = d[i]['contact'];
+                cell4.innerHTML = d[i]['medicine'];
+                cell5.innerHTML = d[i]['availability'];
+                cell6.innerHTML = d[i]['lastverified'];
+                }
+            }
+            console.log(s, d)
+        }
     </script>
+    <style>
+        .card {
+            border: none;
+            background: #eee
+        }
+
+        .search {
+            width: 100%;
+            margin-bottom: auto;
+            margin-top: 20px;
+            height: 50px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px
+        }
+
+        .search-input {
+            color: white;
+            border: 0;
+            outline: 0;
+            background: none;
+            width: 0;
+            margin-top: 5px;
+            caret-color: transparent;
+            line-height: 20px;
+            transition: width 0.4s linear
+        }
+
+        .search .search-input {
+            padding: 0 10px;
+            width: 100%;
+            caret-color: #536bf6;
+            font-size: 19px;
+            font-weight: 300;
+            color: black;
+            transition: width 0.4s linear
+        }
+
+        .search-icon {
+            height: 34px;
+            width: 60px;
+            float: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background-color: #536bf6;
+            font-size: 15px;
+            bottom: 30px;
+            position: relative;
+            border-radius: 5px
+        }
+
+        .search-icon:hover {
+            color: #fff !important
+        }
+
+        a:link {
+            text-decoration: none
+        }
+
+        .card-inner {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, .125);
+            border-radius: .25rem;
+            border: none;
+            cursor: pointer;
+            transition: all 2s
+        }
+
+        .card-inner:hover {
+            transform: scale(1.1)
+        }
+
+        .mg-text span {
+            font-size: 12px
+        }
+
+        .mg-text {
+            line-height: 14px
+        }
+    </style>
 </head>
 <body>
 
@@ -71,6 +183,21 @@
             </div>
         </div>
     </nav>
+    <div class="container mt-4">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-9">
+                <div class="card p-4 mt-3">
+                    <div class="d-flex justify-content-center px-5">
+                        <div class="search"> <input type="text" class="search-input"
+                                placeholder="Enter your State to search" id="searchBox"> <a href="#" class="search-icon"
+                                onclick="srch()"> Search </a> </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
 
     <div class="row justify-content-md-center">
         <div class="col col-lg-10">
