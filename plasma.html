@@ -11,42 +11,7 @@
     <link rel="stylesheet" href="assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-    <script type='text/javascript'>
-        var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1S1Sy9Cpdf_syWrAO3Kd0IWD0LKh6COb4wGGL1EURBcc/edit#gid=0';
-            
-        function init() {
-            Tabletop.init({
-                key: publicSpreadsheetUrl,
-                callback: showInfo,
-                simpleSheet: true
-            })
-        }
-        
-
-        function showInfo(data, tabletop) {
-            var table = document.getElementById("plasmaTable");
-            for(i=0;i<data.length;i++){
-                var row = table.insertRow(1);
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                var cell3 = row.insertCell(2);
-                var cell4 = row.insertCell(3);
-                var cell5 = row.insertCell(4);
-                var cell6 = row.insertCell(5);
-                cell1.innerHTML = data[i]['state'];
-                cell2.innerHTML = data[i]['resource-name'];
-                cell3.innerHTML = data[i]['contact-info'];
-                cell4.innerHTML = data[i]['address'];
-                cell5.innerHTML = data[i]['last-verified'];
-            }
-            
-            alert('Successfully Processed!')
-            console.log(data);
-        }
-
-        window.addEventListener('DOMContentLoaded', init)
-    </script>
+    
 </head>
 <body>
 
@@ -70,23 +35,26 @@
             </div>
         </div>
     </nav>
+    <section>
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-10 col-md-4 col-sm-3">
+        <h3 style="text-align: center;margin-top: 28px;">We are here to help....</h3>
+        <p style="text-align: center;">We have collected and compiled several links where you can possibly find a donor &amp; arranged in well defined manner so that you
+            can find what you are looking for. Information gets updates regularly by our team.</p>
+        <p style="text-align: center;">You can even send us direct message &amp; we will try to help you out. As we all
+            need help in such times.</p>
+            </div></div>
+
+    </section>
 
     <div class="row justify-content-md-center">
         <div class="col col-lg-10 col-md-4 col-sm-3">
-        <table class="table table-striped" id='plasmaTable'>
-            <thead>
-              <tr>
-                <th>STATE</th>
-                <th>RESOURCE NAME</th>
-                <TH>CONTACT INFO</TH>
-                <th>ADDRESS</th>
-                <th>LAST VERIFIED</th>
-              </tr>
-            </thead>
-            <tbody>
-              
-            </tbody>
-          </table>
+        <h3>Website Links : </h3>
+        <ol>
+            <li><a href="https://www.dhoondh.com/">www.dhoondh.com</a></li>
+            <li><a href="https://www.ilbs.in/plasma/">www.ilbs.in/plasma/</a></li>
+            <li><a href="https://www.friends2support.org/">www.friends2support.org/</a></li>
+        </ol>
         </div>
           </div>
         <section>

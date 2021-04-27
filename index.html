@@ -32,12 +32,14 @@
                 var cell4 = row.insertCell(3);
                 var cell5 = row.insertCell(4);
                 var cell6 = row.insertCell(5);
+                var cell7 = row.insertCell(6);
                 cell1.innerHTML = data[i]['state'];
-                cell2.innerHTML = data[i]['name'];
-                cell3.innerHTML = data[i]['address'];
-                cell4.innerHTML = data[i]['contact'];
-                cell5.innerHTML = data[i]['lastverified'];
-                cell6.innerHTML = data[i]['noofbeds'];
+                cell2.innerHTML = data[i]['city'];
+                cell3.innerHTML = data[i]['name'];
+                cell4.innerHTML = data[i]['address'];
+                cell5.innerHTML = data[i]['contact'];
+                cell6.innerHTML = data[i]['lastverified'];
+                cell7.innerHTML = data[i]['noofbeds'];
             }
             console.log(data);
             d = data;
@@ -47,11 +49,15 @@
         function srch() {
             var table = document.getElementById("hospitalTable");
             var s = document.getElementById('searchBox').value;
-            for (i = 0; i < d.length; i++) {
+            var x = table.rows.length;
+            s=s.toLowerCase();
+            for (i = 0; i < x-1; i++) {
                 table.deleteRow(1);
             }
             for (i = 0; i < d.length; i++) {
-                if (d[i]['state'].toLowerCase() == s.toLowerCase()) {
+                var st=d[i]['state']+" "+d[i]['city']+" "+d[i]['name']+" "+d[i]['address']+" "+d[i]['contact']+" "+d[i]['lastverified']+" "+d[i]['noofbeds'];
+                st=st.toLowerCase();
+                if (st.includes(s)) {
                     var row = table.insertRow(1);
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
@@ -59,12 +65,14 @@
                 var cell4 = row.insertCell(3);
                 var cell5 = row.insertCell(4);
                 var cell6 = row.insertCell(5);
+                var cell7 = row.insertCell(6);
                 cell1.innerHTML = d[i]['state'];
-                cell2.innerHTML = d[i]['name'];
-                cell3.innerHTML = d[i]['address'];
-                cell4.innerHTML = d[i]['contact'];
-                cell5.innerHTML = d[i]['lastverified'];
-                cell6.innerHTML = d[i]['noofbeds'];
+                cell2.innerHTML = d[i]['city'];
+                cell3.innerHTML = d[i]['name'];
+                cell4.innerHTML = d[i]['address'];
+                cell5.innerHTML = d[i]['contact'];
+                cell6.innerHTML = d[i]['lastverified'];
+                cell7.innerHTML = d[i]['noofbeds'];
                 }
             }
             console.log(s, d)
@@ -175,7 +183,7 @@
                             href="oxygen.html"
                             target="_blank">Oxygen</a></li>
                     <li class="nav-item"><a class="nav-link"
-                            href="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vR42PqCZePemlvYC24n7_3w-4WTIusyG2hhVYWKyOeGDSOJyuGBfEcdwoyJGWN64U8JtpZoaV0gdD5m/pubhtml"
+                            href="plasma.html"
                             target="_blank">Plasma</a></li>
                     <li class="nav-item"><a class="nav-link"
                             href="medicine.html"
@@ -217,6 +225,7 @@
         <thead>
           <tr>
             <th>STATE</th>
+            <th>CITY</th>
             <th>HOSPITAL NAME</th>
             <th>HOSPITAL ADDRESS</th>
             <TH>CONTACT INFO</TH>
