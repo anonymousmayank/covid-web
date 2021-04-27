@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,11 +23,11 @@
                 simpleSheet: true
             })
         }
-        
+
 
         function showInfo(data, tabletop) {
             var table = document.getElementById("medicineTable");
-            for(i=0;i<data.length;i++){
+            for (i = 0; i < data.length; i++) {
                 var row = table.insertRow(1);
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
@@ -52,29 +53,29 @@
             var table = document.getElementById("medicineTable");
             var s = document.getElementById('searchBox').value;
             var x = table.rows.length;
-            s=s.toLowerCase();
-            for (i = 0; i < x-1; i++) {
+            s = s.toLowerCase();
+            for (i = 0; i < x - 1; i++) {
                 table.deleteRow(1);
             }
             for (i = 0; i < d.length; i++) {
-                var st=d[i]['state']+" "+d[i]['city']+" "+d[i]['address']+" "+d[i]['contact']+" "+d[i]['medicine']+" "+d[i]['availability']+" "+d[i]['lastverified'];
-                st=st.toLowerCase();
+                var st = d[i]['state'] + " " + d[i]['city'] + " " + d[i]['address'] + " " + d[i]['contact'] + " " + d[i]['medicine'] + " " + d[i]['availability'] + " " + d[i]['lastverified'];
+                st = st.toLowerCase();
                 if (st.includes(s)) {
                     var row = table.insertRow(1);
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                var cell3 = row.insertCell(2);
-                var cell4 = row.insertCell(3);
-                var cell5 = row.insertCell(4);
-                var cell6 = row.insertCell(5);
-                var cell7 = row.insertCell(6);
-                cell1.innerHTML = d[i]['state'];
-                cell2.innerHTML = d[i]['city'];
-                cell3.innerHTML = d[i]['address'];
-                cell4.innerHTML = d[i]['contact'];
-                cell5.innerHTML = d[i]['medicine'];
-                cell6.innerHTML = d[i]['availability'];
-                cell7.innerHTML = d[i]['lastverified'];
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+                    var cell5 = row.insertCell(4);
+                    var cell6 = row.insertCell(5);
+                    var cell7 = row.insertCell(6);
+                    cell1.innerHTML = d[i]['state'];
+                    cell2.innerHTML = d[i]['city'];
+                    cell3.innerHTML = d[i]['address'];
+                    cell4.innerHTML = d[i]['contact'];
+                    cell5.innerHTML = d[i]['medicine'];
+                    cell6.innerHTML = d[i]['availability'];
+                    cell7.innerHTML = d[i]['lastverified'];
                 }
             }
             console.log(s, d)
@@ -168,7 +169,17 @@
             line-height: 14px
         }
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCQRRJN1S4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZCQRRJN1S4');
+    </script>
 </head>
+
 <body>
 
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
@@ -177,14 +188,10 @@
                     navigation</span><span class="navbar-toggler-icon" style="color: var(--blue);"></span></button>
             <div class="collapse navbar-collapse text-right" id="navcol-1">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link"
-                            href="index.html" target="_blank">Hospital Beds</a></li>
-                    <li class="nav-item"><a class="nav-link"
-                            href="oxygen.html" target="_blank">Oxygen</a></li>
-                    <li class="nav-item"><a class="nav-link"
-                            href="plasma.html" target="_blank">Plasma</a></li>
-                    <li class="nav-item"><a class="nav-link"
-                            href="medicine.html" target="_blank">Medicines</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" target="_blank">Hospital Beds</a></li>
+                    <li class="nav-item"><a class="nav-link" href="oxygen.html" target="_blank">Oxygen</a></li>
+                    <li class="nav-item"><a class="nav-link" href="plasma.html" target="_blank">Plasma</a></li>
+                    <li class="nav-item"><a class="nav-link" href="medicine.html" target="_blank">Medicines</a></li>
                 </ul><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button"
                         href="https://docs.google.com/forms/d/e/1FAIpQLSceFGp0TD3Au16xahKZSZ9ZZUiA_vbuShy9SVfcI9AmH-PuMQ/viewform?usp=sf_link">Get
                         Support</a></span>
@@ -209,41 +216,42 @@
 
     <div class="row justify-content-md-center">
         <div class="col col-lg-10 col-md-4 col-sm-3">
-        <table class="table table-striped" id='medicineTable'>
-            <thead>
-              <tr>
-                <th>STATE</th>
-                <th>CITY</th>
-                <th>CITY/ ADDRESS</th>
-                <TH>CONTACT INFO</TH>
-                <th>MEDICINE NAME</th>
-                <th>NO. AVAILABLE</th>
-                <th>LAST VERIFIED</th>
-              </tr>
-            </thead>
-            <tbody>
-              
-            </tbody>
-          </table>
+            <table class="table table-striped" id='medicineTable'>
+                <thead>
+                    <tr>
+                        <th>STATE</th>
+                        <th>CITY</th>
+                        <th>CITY/ ADDRESS</th>
+                        <TH>CONTACT INFO</TH>
+                        <th>MEDICINE NAME</th>
+                        <th>NO. AVAILABLE</th>
+                        <th>LAST VERIFIED</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
         </div>
-          </div>
-        <section>
-            <footer class="footer-basic">
-                <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
-                            class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a>
-                </div>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="index.html">Home</a></li>
-                    <li class="list-inline-item"></li>
-                    <li class="list-inline-item"></li>
-                    <li class="list-inline-item"></li>
-                    <li class="list-inline-item"><a href="privacy.html">Privacy Policy</a></li>
-                </ul>
-                <p class="copyright">Covid'19 Resource Site © 2021</p>
-            </footer>
-        </section>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    
+    </div>
+    <section>
+        <footer class="footer-basic">
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+                        class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a>
+            </div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="index.html">Home</a></li>
+                <li class="list-inline-item"></li>
+                <li class="list-inline-item"></li>
+                <li class="list-inline-item"></li>
+                <li class="list-inline-item"><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Covid'19 Resource Site © 2021</p>
+        </footer>
+    </section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>
